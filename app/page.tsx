@@ -10,6 +10,14 @@ interface Book {
   coverUrl?: string;
 }
 
+interface OpenLibraryBook {
+  key: string;
+  title: string;
+  first_sentence?: string[];
+  author_name?: string[];
+  cover_i?: number;
+}
+
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [books, setBooks] = useState<Book[]>([]);
@@ -30,7 +38,7 @@ export default function Home() {
       `https://openlibrary.org/search.json?q=${query}&limit=10`
     );
     const data = await res.json();
-    const fetchedBooks = data.docs.map((book: any) => ({
+    const fetchedBooks = data.docs.map((book: OpenLibraryBook) => ({
       id: book.key,
       title: book.title,
       description: book.first_sentence

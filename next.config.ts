@@ -1,15 +1,13 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-//** @type {import('next').NextConfig} */
+// ** @type {import('next').NextConfig} **
 const nextConfig = {
   images: {
-    domains: ['via.placeholder.com', 'covers.openlibrary.org', 'images.ctfassets.net'], // Add allowed external image domains here
+    domains: [
+      'via.placeholder.com',
+      'covers.openlibrary.org',
+      'images.ctfassets.net',
+      'embed.filekitcdn.com' // Added this domain
+    ],
   },
 };
 
 module.exports = nextConfig;
-
